@@ -1,0 +1,41 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+  <div class="container">
+    <a class="navbar-brand" [routerLink]="['/public/dashboard']" routerLinkActive="router-link-active"><strong>Essential
+      Immobilier</strong></a>
+
+    <button class="navbar-toggler" type="button"
+            (click)="toggleNavbar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse"
+         [ngClass]="{ 'show': navbarOpen }">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/public/demeure" routerLinkActive="router-link-active">Nos biens</a>
+        </li>
+        <li class="nav-item" *ngIf="!connected">
+          <a class="nav-link" [routerLink]="['/public/login']" routerLinkActive="router-link-active">Login</a>
+        </li>
+        <li class="nav-item" *ngIf="connected">
+          <a (click)="logout()" class="nav-link btn">Logout</a>
+        </li>
+        <!-- Dropdown -->
+        <li class="nav-item dropdown" *ngIf="!connected">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false" [routerLink]="['/admin']" routerLinkActive="router-link-active">Admin</a>
+          <!-- Dropdown menu -->
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" [routerLink]="['/admin/demeure']" routerLinkActive="router-link-active">Admin
+              Demeures</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/admin/critere']" routerLinkActive="router-link-active">Admin
+              Critères</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/admin/user']" routerLinkActive="router-link-active">AdminUtilisateurs</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- Navigation -->
+

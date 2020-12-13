@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <h1>Add Critere</h1>
+    </div>
+    <div class="col-6 text-right">
+      <button class="btn-primary" [routerLink]="['/admin/critere']" routerLinkActive="router-link-active" >Back</button>
+    </div>
+    <div class="col-12 text-center">
+      <form [formGroup]="critereForm" (ngSubmit)="onSubmit()">
+
+        <div class="row justify-content-md-center mb-3">
+          <div class="col-12 col-sm-3">
+            <label>Name</label>
+          </div>
+          <div class="col-12 col-sm-6">
+            <input type="text" name="name" formControlName="name" class="w-100"> <br>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-primary mt-4">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

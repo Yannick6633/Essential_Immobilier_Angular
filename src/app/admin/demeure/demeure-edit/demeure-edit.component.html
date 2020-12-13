@@ -1,1 +1,83 @@
-<p>demeure-edit works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <h1>Add Demeure</h1>
+    </div>
+    <div class="col-6 text-right">
+      <button class="btn-primary" [routerLink]="['/admin/demeure']" routerLinkActive="router-link-active">Back</button>
+    </div>
+    <div class="col-12 text-center">
+      <form [formGroup]="demeureForm" (ngSubmit)="onSubmit()">
+        <div class="row justify-content-md-center mb-3">
+          <div class="col-12 col-sm-3">
+            <label>Title</label>
+          </div>
+          <div class="col-12 col-sm-6">
+            <input type="text" name="title" formControlName="title" class="w-100"> <br>
+          </div>
+        </div>
+
+        <div class="row justify-content-md-center mb-3">
+          <div class="col-12 col-sm-3">
+            <label>Price</label>
+          </div>
+          <div class="col-12 col-sm-6">
+            <input type="number" name="price" formControlName="price" class="w-100"> <br>
+          </div>
+        </div>
+
+        <div class="row justify-content-md-center mb-3">
+          <div class="col-12 col-sm-3">
+            <label>City</label>
+          </div>
+          <div class="col-12 col-sm-6">
+            <input type="text" name="city" formControlName="city" class="w-100"> <br>
+          </div>
+        </div>
+
+        <div class="row justify-content-md-center mb-3">
+          <div class="col-12 col-sm-3">
+            <label>Pieces</label>
+          </div>
+          <div class="col-12 col-sm-6">
+            <input type="number" name="piece" formControlName="piece" class="w-100"> <br>
+          </div>
+        </div>
+
+        <div class="row justify-content-md-center mb-3">
+          <div class="col-12 col-sm-3">
+            <label>Critere</label>
+          </div>
+          <div class="col-12 col-sm-6">
+            <select formControlName="CategoryId" class="w-100">
+              <option [ngValue]="null" disabled>Choose your critere</option>
+              <option *ngFor="let critere of criteres" [ngValue]="critere.id">
+                {{ critere.name }}
+              </option>
+            </select>
+            <br>
+          </div>
+        </div>
+        <div class="row justify-content-md-center mb-3">
+          <div class="col-12 col-sm-3">
+            <label>Description</label>
+          </div>
+          <div class="col-12 col-sm-6">
+            <textarea name="description" formControlName="description" class="w-100"> </textarea>
+          </div>
+        </div>
+        <div class="row justify-content-md-center mb-3">
+          <div class="col-12 col-sm-3">
+            <label>Image</label>
+          </div>
+          <div class="col-12 col-sm-6 text-center">
+            <img class="card-img-top" src="" class="w-50">
+            <input type="file" name="image" formControlName="image">
+          </div>
+        </div>
+
+        <button type="submit" class="btn-primary mt-4">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

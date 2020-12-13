@@ -1,1 +1,30 @@
-<p>critere-list works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <h1>Liste Critères</h1>
+    </div>
+    <div class="col-6 text-right ">
+      <button class="btn-primary" [routerLink]="['/admin/critere/add']" routerLinkActive="router-link-active" >+ Add Critere</button>
+    </div>
+    <div class="col-12">
+      <table class="table table-dark">
+        <thead>
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let critere of criteres">
+          <td>{{ critere.id }}</td>
+          <td>{{ critere.name }}</td>
+          <td>
+            <button class="btn btn-warning mr-2" [routerLink]="['/admin/critere/edit', critere.id]">Edit</button>
+            <button class="btn btn-danger" (click)="deleteCritere(critere.id)">Delete</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

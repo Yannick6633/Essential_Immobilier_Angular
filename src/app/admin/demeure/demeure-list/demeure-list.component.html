@@ -1,1 +1,48 @@
-<p>demeure-list works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <h1>
+        Demeure
+      </h1>
+    </div>
+    <div class="col-6 text-right ">
+      <button class="btn-primary" [routerLink]="['/admin/demeure/add']" routerLinkActive="router-link-active" >+ Add Demeure</button>
+    </div>
+    <div class="col-12">
+      <table class="table table-dark">
+        <thead>
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">Title</th>
+          <th scope="col">Price</th>
+          <th scope="col">City</th>
+          <th scope="col">Pieces</th>
+          <th scope="col">Description</th>
+          <th scope="col">Image</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let demeure of demeures">
+          <td>{{ demeure.id }}</td>
+          <td>{{ demeure.title }}</td>
+          <td>{{ demeure.price }}</td>
+          <td>{{ demeure.city }}</td>
+          <td>{{ demeure.piece }}</td>
+          <td>{{ demeure.description }}</td>
+          <td>{{ demeure.image }}</td>
+          <td>
+            <p *ngFor="let critere of demeure.Criteres">
+              {{ critere.name}}
+            </p>
+          </td>
+          <td>
+            <button class="btn btn-primary mr-2" [routerLink]="['/admin/demeure/add/critere', demeure.id]">Edit Critère</button>
+            <button class="btn btn-warning mr-2" [routerLink]="['/admin/demeure/edit', demeure.id]">Edit</button>
+            <button class="btn btn-danger" (click)="deleteDemeure(demeure.id)">Delete</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

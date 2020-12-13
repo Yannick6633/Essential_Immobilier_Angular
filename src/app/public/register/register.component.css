@@ -1,0 +1,15 @@
+.card-body {
+  background: rgba(158, 158, 158, 0.7) ;
+}
+
+.card-header {
+  background: rgba(0,0,0,0.7);
+}
+
+.form-row {
+  padding: 10px
+}
+
+label {
+  color: black;
+}
